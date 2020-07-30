@@ -3,32 +3,35 @@
 	<head>
 		<meta charset="utf-8">
 	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>ZPROD_CONF</title>
+		<title>Production Order Cnfirmation</title>
+		
 		<script id="sap-ui-bootstrap"
 			src="resources/sap-ui-core.js"
-			data-sap-ui-theme="sap_fiori_3"
-			data-sap-ui-resourceroots='{"ZRTC.ZPROD_CONF": "./"}'
+			data-sap-ui-libs="sap.m"
+			data-sap-ui-theme="sap_bluecrystal"
+			
+			data-sap-ui-resourceroots='{"ZRTC.ZPROD_CONF": ""}'
 			data-sap-ui-compatVersion="edge"
 			data-sap-ui-oninit="module:sap/ui/core/ComponentSupport"
 			data-sap-ui-async="true"
 			data-sap-ui-frameOptions="trusted">
 		</script>
-		
-		<style>
-    .mySquare {                  /* style the CSS class that has been written by the renderer method */
-        display: inline-block;   /* enable squares to appear next to each other within one line */
-        border: 1px solid red;   /* add some border, so the square can actually be seen */
-        background-color: #ddd;
-        padding: 8px;
-        text-align: center;
-        -moz-box-sizing: border-box; /* consider padding+border part of the width/height */
-        box-sizing: border-box;
-    }
-</style>
 	
-	</head>
-	<body class="sapUiBody">
-		<div data-sap-ui-component data-name="ZRTC.ZPROD_CONF" data-id="container" data-settings='{"id" : "ZPROD_CONF"}'></div>
+		<link rel="stylesheet" type="text/css" href="css/style.css">
 		
+			<script>
+			sap.ui.getCore().attachInit(function() {
+				new sap.m.Shell({
+					app: new sap.ui.core.ComponentContainer({
+						height : "100%",
+						name : "ZRTC.ZPROD_CONF"
+						
+					})
+				}).placeAt("content");
+			});
+		</script>
+	</head>
+	
+	<body class="sapUiBody" id="content">
 	</body>
 </html>

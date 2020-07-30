@@ -28,18 +28,15 @@ font-color:black;
 }
 
 .ColInput  .sapMInputBaseInner{
-font-size:0.875rem;
-height:1.5rem;
+height:1.7rem;
 /*font-family:segoe ui Regular!important;*/
 /*text-shadow:none!important;*/
-/*padding:0 0.75rem;*/
-/*border-radius:1px;*/
-/*background:rgba(255, 255, 255)!important;*/
-/*border-width:0.55px !important;*/
-/*border-style:solid !important;*/
-/*border-color:rgba(0, 0, 0, 0.314)!important;*/
-/*color:#3f3f3f;*/
-/*background:#D9D9D9;*/
+padding:0.1rem;
+border-radius:1px;
+border-width:0.55px !important;
+/*border-height:1.7rem;*/
+border-color:rgba(0, 0, 0, 0.4)!important;
+color:#3f3f3f;
 }
 
 .ColText  .sapMInputBaseInner{
@@ -83,6 +80,24 @@ font-weight:600;
 background:#a02e28!important;
 color:#fff!important;
 box-shadow:0 2px 1px 0 #be3a34, 0 2px 10px 0 rgba(0,0,0,0.16), 0 2px 5px 0 rgba(0,0,0,0.26) !important;
+}
+
+.ButtonColorGreen .sapMBtnInner {
+height:auto !important;
+min-width:4rem!important;
+max-width:7rem!important;
+border-radius:2rem !important;
+border:0;
+text-transform:uppercase !important;
+text-shadow:none !important;
+letter-spacing:2px;
+font-weight:600;
+background:#a2c614!important;
+color:#ffffff!important;
+box-shadow:0 2px 1px 0 #698714, 0 2px 10px 0 rgba(54,105,75,0.16), 0 2px 5px 0 rgba(57,112,69,0.26) !important;
+font-size:16px !important;
+animation:glow 3s ease-in-out infinite;
+letter-spacing:2px;
 }
 
 .ButtonColorGreen .sapMBtnInner:hover {
@@ -134,11 +149,11 @@ box-shadow:0 2px 1px 0 #be3a34, 0 2px 10px 0 rgba(0,0,0,0.16), 0 2px 5px 0 rgba(
 .InspoTable .sapMListTbl th {
 height:2.3rem!important;
 border-bottom:1px solid#bcd08a;
-background:#f3f3f3!important;
+/*background:#f3f3f3!important;*/
 
 }
 .clBGColor {
-background:#698714;
+/*background:#698714;*/
 border-bottom:1px solid#e5e5e5;
 	
 }
@@ -149,16 +164,13 @@ color:#fff!important;
 }
 
 .Panel_BC {
- background-color: #E5E5E5 !important; 	
+ /*background-color: #E5E5E5 !important; 	*/
  
 }
-
 /*css for cards*/
 .detailsCard{
 	border-radius: 1rem;
     border: 1px solid #D8D8D8;	
 }
-
-
 
 /* Enter your custom styles here */
