@@ -100,6 +100,24 @@ animation:glow 3s ease-in-out infinite;
 letter-spacing:2px;
 }
 
+.ButtonColorRed .sapMBtnInner {
+height:auto !important;
+min-width:20rem!important;
+max-width:25rem!important;
+border-radius:2rem !important;
+border:0;
+text-transform:uppercase !important;
+text-shadow:none !important;
+letter-spacing:1px;
+font-weight:600;
+background:#a2c614!important;
+color:#ffffff!important;
+box-shadow:0 2px 1px 0 #698714, 0 2px 10px 0 rgba(54,105,75,0.16), 0 2px 5px 0 rgba(57,112,69,0.26) !important;
+font-size:10px !important;
+animation:glow 3s ease-in-out infinite;
+letter-spacing:2px;
+}
+
 .ButtonColorGreen .sapMBtnInner:hover {
 height:auto !important;
 min-width:4rem!important;

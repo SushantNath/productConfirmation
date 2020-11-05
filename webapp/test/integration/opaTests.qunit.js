@@ -5,7 +5,7 @@ sap.ui.getCore().attachInit(function () {
 	"use strict";
 
 	sap.ui.require([
-		"ZRTC/ZPROD_CONF/test/integration/AllJourneys"
+		"ZRTC/ZPROD_CONF1/test/integration/AllJourneys"
 	], function () {
 		QUnit.start();
 	});

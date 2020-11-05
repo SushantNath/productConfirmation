@@ -1,0 +1,19 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<SelectDialog
+		title="Products"
+		class="sapUiPopupWithPadding"
+		items="{/Reason}"
+		search="_handleValueHelpSearch"
+		confirm="_handleValueHelpClose"
+		cancel="_handleValueHelpClose"
+		multiSelect="true">
+		<StandardListItem
+			icon="{ProductPicUrl}"
+			iconDensityAware="false"
+			iconInset="false"
+			title="{Cause}"
+			description="{Description}" />
+	</SelectDialog>
+</core:FragmentDefinition>

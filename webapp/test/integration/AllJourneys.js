@@ -7,7 +7,7 @@ sap.ui.define([
 
 	Opa5.extendConfig({
 		arrangements: new Startup(),
-		viewNamespace: "ZRTC.ZPROD_CONF.view.",
+		viewNamespace: "ZRTC.ZPROD_CONF1.view.",
 		autoWait: true
 	});
 });

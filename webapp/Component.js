@@ -1,11 +1,11 @@
 sap.ui.define([
 	"sap/ui/core/UIComponent",
 	"sap/ui/Device",
-	"ZRTC/ZPROD_CONF/model/models"
+	"ZPROD_CONF1/model/models"
 ], function (UIComponent, Device, models) {
 	"use strict";
 
-	return UIComponent.extend("ZRTC.ZPROD_CONF.Component", {
+	return UIComponent.extend("ZPROD_CONF1.Component", {
 
 		metadata: {
 			manifest: "json"
