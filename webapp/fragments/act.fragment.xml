@@ -9,7 +9,8 @@
 	xmlns:core="sap.ui.core" >
 	<Dialog
 	    id="idact"
-	    afterClose="dialogAfterClose"
+	    class="sapUiPopupWithPadding pageDialog"
+	    afterClose="dialogAfterClose1"
 		contentHeight="90%"
 		contentWidth="55%"
 		showHeader="false">
@@ -33,7 +34,7 @@
 						<Input id="idOper1" width="8rem" class="ColInput" editable="false"/>
 						</FlexBox>
 					    </HBox>
-					    
+					<!--    --><!--    --><!--    --><!--    -->
 					    <HBox>
 						<FlexBox id="idFWork1" alignItems="Center">	
 						<Label id="idLWork1" width="8rem" text="{i18n>Work}" class="sapUiTinyMarginBegin ColLabel"/>
@@ -41,7 +42,7 @@
 						</FlexBox>
 						
 						<FlexBox id="idFDesc1" alignItems="Center">
-					     <Label id="idLDesc1" width="0.6rem"  class="sapUiTinyMarginBegin ColLabel"/>
+					     <Label id="idLDesc1" width="0.6rem" class="sapUiTinyMarginBegin ColLabel"/>
 						 <Input id="idDesc1" width="15rem" class="ColInput" editable="false"/>
 						</FlexBox>
 						</HBox>
@@ -90,17 +91,14 @@
 						<HBox>
 						<FlexBox id="idFNumber1" alignItems="Center">
 						<Label id="idLNumber1" width="10rem" text="{i18n>Number}" class="sapUiTinyMarginBegin ColLabel"/>
-						<Input id="idNumber1" width="3rem" class="ColInput" editable="false"/>
+						<Input id="idNumber1" width="3rem" class="ColInput" editable="true"/>
 						</FlexBox>
 						</HBox>
 						
 						<HBox>
 						<FlexBox id="idFReason1" alignItems="Center">
 						<Label id="idLReason1" width="10rem" text="{i18n>Reason}" class="sapUiTinyMarginBegin ColLabel"/>
-					    
-					    <ComboBox id="idReason1" width="5.8cm" showSecondaryValues="true" items="{path: 'jData>/Reason/'}" change="fchangetype1" selectionChange="handle_typeId_combo">
-			            <core:Item key="{jData>Cause}" text="{jData>Description}"/>
-				        </ComboBox>
+			 	        <Input id="idReason1" width="80%" class="ColInput" placeholder="{i18n>Select}" valueHelpRequest="onReasonF4" change="onReasonF4Change" showValueHelp="true" value="{GET_REASONModel>/Aufnr}"/>	
 						</FlexBox>
 						</HBox>
 						
@@ -126,11 +124,11 @@
 				        displayFormat="HH:mm:ss"
 			            class="sapUiSmallMarginBottom" />
 						</FlexBox>
-					    
+					<!--    --><!--    --><!--    --><!--    -->
 					    <FlexBox id="idFAccept1" alignItems="Center">
 			            <ToolbarSpacer/>
 			         	<Label id="idLReject1" width="6rem" class="sapUiTinyMarginBegin ColLabel"/>
-				        <Button id="idReject1" icon="sap-icon://decline" class="ButtonColorBrown" press="fHandleClose" ariaLabelledBy="actionButtonLabel"/>
+				        <Button id="idReject1" icon="sap-icon://decline" class="ButtonColorBrown" press="fHandleClose1" ariaLabelledBy="actionButtonLabel"/>
 				        <Label id="idLAccept1" width="0.5rem" class="sapUiTinyMarginBegin ColLabel"/>
 				        <Button id="idAccept1" icon="sap-icon://accept" class="ButtonColorGreen" press="fConfirm1" ariaLabelledBy="actionButtonLabel"/>
 				        <ToolbarSpacer/>

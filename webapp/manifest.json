@@ -1,7 +1,7 @@
 {
 	"_version": "1.12.0",
 	"sap.app": {
-		"id": "ZPROD_CONF1",
+		"id": "ZPROD_CONF2",
 		"type": "application",
 		"i18n": "i18n/i18n.properties",
 		"applicationVersion": {
@@ -42,7 +42,7 @@
 	"sap.ui5": {
 		"flexEnabled": false,
 		"rootView": {
-			"viewName": "ZPROD_CONF1.view.View1",
+			"viewName": "ZPROD_CONF2.view.View1",
 			"type": "XML",
 			"async": true,
 			"id": "View1"
@@ -64,7 +64,7 @@
 			"i18n": {
 				"type": "sap.ui.model.resource.ResourceModel",
 				"settings": {
-					"bundleName": "ZPROD_CONF1.i18n.i18n"
+					"bundleName": "ZPROD_CONF2.i18n.i18n"
 				}
 			},
 			"": {
@@ -90,7 +90,7 @@
 				"routerClass": "sap.m.routing.Router",
 				"viewType": "XML",
 				"async": true,
-				"viewPath": "ZPROD_CONF1.view",
+				"viewPath": "ZPROD_CONF2.view",
 				"controlAggregation": "pages",
 				"controlId": "Production Order Confirmation",
 				"clearControlAggregation": false
@@ -116,7 +116,7 @@
 		}
 	},
 	"sap.platform.abap": {
-		"uri": "/sap/bc/ui5_ui5/sap/zprod_conf/webapp",
+		"uri": "/sap/bc/ui5_ui5/sap/zprod_conf",
 		"_version": "1.1.0"
 	}
 }

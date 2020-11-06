@@ -4,16 +4,17 @@
 	xmlns:core="sap.ui.core" >
 	<Dialog
 	    id="idquan"
-	    afterClose="dialogAfterClose"
+	    afterClose="dialogAfterClose2"
+	    class="sapUiPopupWithPadding pageDialog"
 		contentHeight="100%"
 		contentWidth="55%"
 		showHeader="false">
 		
-			    <Toolbar height="3rem">
+			    <Toolbar height="3.8rem">
 				<m:OverflowToolbar>
 				<m:Title text="{i18n>Dec}"/>
 				<m:ToolbarSpacer width="15rem"/>
-					<!--<m:Button icon="sap-icon://decline" press="handleClose"/>-->
+					
 				</m:OverflowToolbar>
 			    </Toolbar>
 			
@@ -28,7 +29,7 @@
 						<Input id="idOper2" width="8rem" class="ColInput" editable="false"/>
 						</FlexBox>
 					    </HBox>
-					    
+					<!--    --><!--    --><!--    --><!--    -->
 					    <HBox>
 						<FlexBox id="idFWork2" alignItems="Center">	
 						<Label id="idLWork2" width="8rem" text="{i18n>Work}" class="sapUiTinyMarginBegin ColLabel"/>
@@ -36,7 +37,7 @@
 						</FlexBox>
 						
 						<FlexBox id="idFDesc2" alignItems="Center">
-					     <Label id="idLDesc2" width="0.6rem"  class="sapUiTinyMarginBegin ColLabel"/>
+					     <Label id="idLDesc2" width="0.6rem" class="sapUiTinyMarginBegin ColLabel"/>
 						 <Input id="idDesc2" width="15rem" class="ColInput" editable="false"/>
 						</FlexBox>
 						</HBox>
@@ -52,19 +53,6 @@
 						<Input id="idMatD2" width="15rem" class="ColInput" editable="false"/>
 						</FlexBox>
 						</HBox>
-						
-					
-						
-						<!--<FlexBox id="idFQConf" alignItems="Center">-->
-						<!--<Label id="idLQConf" width="0.6rem" class="sapUiTinyMarginBegin ColLabel"/>-->
-						<!--<Input id="idQConf" width="8rem" class="ColInput" editable="false"/>-->
-						<!--</FlexBox>-->
-					
-						<!--<FlexBox id="idFQCon" alignItems="Center">	-->
-						<!--<Label id="idLQCon" width="0.6rem" class="sapUiTinyMarginBegin ColLabel"/>-->
-						<!--<Input id="idQCon" width="4rem" class="ColInput" editable="false"/>-->
-						<!--</FlexBox>-->
-						<!--</HBox>-->
 						
 						<HBox>
 						<FlexBox id="idFLast2" alignItems="Center">
@@ -87,12 +75,7 @@
 						<Input id="idQUnit2" width="4rem" class="ColInput" editable="false"/>
 						</FlexBox>
 						</HBox>
-						
-						
-						<!--<l:BlockLayout id="BlockLayoutParent" background="Default" >-->
-			   <!--         <l:BlockLayoutRow accentCells="Accent1">-->
-			   <!--         <l:BlockLayoutCell class=" detailsCard sapUiResponsiveMargin" >-->
-						<!--<l:BlockLayoutCell title="Processing" class=" detailsCard ">-->
+		
 						<HBox>
 						<FlexBox id="idFType2" alignItems="Center">
 						<Label id="idLType2" width="8rem" text="{i18n>Type}" class="sapUiTinyMarginBegin ColLabel"/>
@@ -103,56 +86,34 @@
 						<HBox>
 						<FlexBox id="idFNumber2" alignItems="Center">
 						<Label id="idLNumber2" width="10rem" text="{i18n>Number}" class="sapUiTinyMarginBegin ColLabel"/>
-						<Input id="idNumber2" width="3rem" class="ColInput" editable="false"/>
+						<Input id="idNumber2" width="3rem" class="ColInput" editable="true"/>
 						</FlexBox>
 						</HBox>
-						
-						<HBox>
-					    <FlexBox id="idFReason2" alignItems="Center">
-						<Label id="idLReason2" width="10rem" text="{i18n>Reason}" class="sapUiTinyMarginBegin ColLabel"/>
-					    
-					    <ComboBox id="idReason2" width="5.8cm" showSecondaryValues="true" items="{path: 'jData>/Reason/'}" change="fchangetype" selectionChange="handle_typeId_combo">
-			            <core:Item key="{jData>Cause}" text="{jData>Description}"/>
-				        </ComboBox>
-				        </FlexBox>
-						</HBox>
-						
-						<!--<HBox>-->
-						<!--<FlexBox id="idFReason" alignItems="Center">-->
-						<!--<Label id="idLReason" width="10rem" text="{i18n>Reason}" class="sapUiTinyMarginBegin ColLabel"/>-->
-						<!--<Input id="idReason" width="12rem" class="ColInput" editable="true"/>-->
-						<!--</FlexBox>-->
-						<!--</HBox>-->
-						
+			
 						<HBox>
 						<FlexBox id="idFQuan2" alignItems="Center">
-						<Label id="idLQuan2" width="12rem" text="{i18n>Activity}" class="sapUiTinyMarginBegin ColLabel"/>
-						<Input id="idQuan2" width="8rem" class="ColInput" editable="false"/>
+						<Label id="idLQuan2" width="8rem" text="{i18n>Quantity}" class="sapUiTinyMarginBegin ColLabel"/>
+						<Input id="idQuan2" width="8rem" class="ColInput" editable="true"/>
 						</FlexBox>
 						
 						<FlexBox id="idFQU2" alignItems="Center">	
 						<Label id="idLQU2" width="0.6rem" class="sapUiTinyMarginBegin ColLabel"/>
-						<Input id="idQU2" width="4rem" class="ColInput" editable="false"/>
+						<Input id="idQU2" width="4rem" class="ColInput" editable="true"/>
 						</FlexBox>
 						</HBox>
 						
 						<HBox>
 						<FlexBox id="idFAuto2" alignItems="Center">
-                        <!--<Label id="idLAuto" width="rem" class="sapUiTinyMarginBegin ColLabel"/>							-->
-						<Button id="idAuto2" width="20rem" text="{i18n>Auto}" class="ButtonColorRed" press="fAuto" />
-						</FlexBox>
-						
-						<FlexBox id="idFManual2" alignItems="Center">
-					    <Label id="idLManual2" width="2rem" class="sapUiTinyMarginBegin ColLabel"/>		
-						<Button id="idManual2" width="20rem" text="{i18n>Manual}" class="ButtonColorRed" press="fManual"/>
-						</FlexBox>
+						<RadioButtonGroup id="rbg2" columns="2" selectedIndex="2" class="sapUiMediumMarginBottom">
+		             	<RadioButton id="idAuto2" text="{i18n>Auto}" selected="true"/>
+			            <RadioButton id="idManual2" text="{i18n>Manual}" />
+		                </RadioButtonGroup>
+			            </FlexBox>
 						</HBox>
-						
 						
 						<HBox>
 						<FlexBox id="idFDate2" alignItems="Center">
 						<Label id="idLDate2" width="8rem" text="{i18n>Date}" class="sapUiTinyMarginBegin ColLabel"/>
-						<!--<Input id="idDate" width="8rem" class="ColInput" editable="true"/>-->
 						<DatePicker
 		             	id="idDate2"
 		             	width="9rem"
@@ -165,7 +126,6 @@
 						<HBox>
 						<FlexBox id="idFTime2" alignItems="Center">
 						<Label id="idLTime2" width="8rem" text="{i18n>Time}" class="sapUiTinyMarginBegin ColLabel"/>
-						<!--<Input id="idTime" width="8rem" class="ColInput" editable="true"/>-->
 						<TimePicker
 			            id="idTime2"
 			            width="9rem"
@@ -177,19 +137,12 @@
 						<FlexBox id="idFAccept2" alignItems="Center">
 			            <ToolbarSpacer/>
 			         	<Label id="idLReject2" width="6rem" class="sapUiTinyMarginBegin ColLabel"/>
-				        <Button id="idReject2" icon="sap-icon://decline" class="ButtonColorBrown" press="fHandleClose" ariaLabelledBy="actionButtonLabel"/>
+				        <Button id="idReject2" icon="sap-icon://decline" class="ButtonColorBrown" press="fHandleClose2" ariaLabelledBy="actionButtonLabel"/>
 				        <Label id="idLAccept2" width="0.5rem" class="sapUiTinyMarginBegin ColLabel"/>
-				        <Button id="idAccept2" icon="sap-icon://accept" class="ButtonColorGreen" press="fConfirm" ariaLabelledBy="actionButtonLabel"/>
+				        <Button id="idAccept2" icon="sap-icon://accept" class="ButtonColorGreen" press="fConfirm2" ariaLabelledBy="actionButtonLabel"/>
 				        <ToolbarSpacer/>
 			            </FlexBox>
-			            
+			<!--    --><!--    --><!--    --><!--    --><!--    --><!--    --><!--    --><!--    --><!--    --><!--    --><!--    --><!--    -->
 						</HBox>
-						<!--</l:BlockLayoutCell>-->
-						<!--</l:BlockLayoutRow>-->
-						<!--</l:BlockLayout>-->
-						
-		<!--</content>				-->
-	     
-		
 	</Dialog>
 </core:FragmentDefinition>

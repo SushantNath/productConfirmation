@@ -1,3 +1,28 @@
+.PageHead .sapMTitleStyleAuto {
+color: #fff;
+text-shadow: none;
+font-family: segoe ui Semibold!important;
+letter-spacing:1px;
+font-size:18px;
+}
+.clMargin {
+margin-right: 0rem;
+margin-left: 0rem;
+width: calc(100%-1rem);
+}
+.BgcolTrans {
+ background-color: #A9C6DE;
+}
+
+.ColLabel {
+font-family:segoe ui Semibold!important;
+font-weight:500;
+padding:0 0.75rem;
+margin-top:10px;
+font-size:0.875rem;
+font-color:black;
+}
+
 .Page_BC {
  background-color: #E5E5E5 !important; 		
  background-size: 100% 100% !important;
@@ -16,25 +41,15 @@ letter-spacing:1px;
 font-size:18px;
 }
 
-
-.ColLabel .sapMBtnInner{
-font-family:segoe ui Semibold!important;
-font-weight:500;
-padding:0 0.75rem;
-margin-top:10px;
-/*margin-right:50px;*/
-font-size:0.875rem;
-font-color:black;
-}
-
 .ColInput  .sapMInputBaseInner{
 height:1.7rem;
-/*font-family:segoe ui Regular!important;*/
-/*text-shadow:none!important;*/
-padding:0.1rem;
-border-radius:1px;
-border-width:0.55px !important;
-/*border-height:1.7rem;*/
+
+font-family:segoe ui Regular!important;
+text-shadow:black!important;
+padding:1.5px;
+border-radius:2px;
+border-width:1px !important;
+border-height:1.5rem;
 border-color:rgba(0, 0, 0, 0.4)!important;
 color:#3f3f3f;
 }
@@ -53,19 +68,12 @@ color:#3f3f3f;
 type:default;	
 height:2.5rem !important;
 min-width:4rem!important;
-/*max-width:12rem!important;*/
-/*font-size:15px !important;*/
-/*border-radius:2rem !important;*/
 border:0;
-/*text-transform:uppercase !important;*/
 text-shadow:black !important;
-/*letter-spacing:2px;*/
+
 font-weight:600;
-/*background:#D9D9D9!important;*/
 background:Grey!important;
 color:#000000!important;
-/*box-shadow:0 2px 1px 0 #597114 , 0 2px 10px 0 rgba(0,0,0,0.16), 0 2px 5px 0 rgba(0,0,0,0.26) !important;*/
-
 }
 .ButtonColorBrown .sapMBtnInner {
 height:auto !important;
@@ -167,13 +175,9 @@ box-shadow:0 2px 1px 0 #be3a34, 0 2px 10px 0 rgba(0,0,0,0.16), 0 2px 5px 0 rgba(
 .InspoTable .sapMListTbl th {
 height:2.3rem!important;
 border-bottom:1px solid#bcd08a;
-/*background:#f3f3f3!important;*/
-
 }
 .clBGColor {
-/*background:#698714;*/
 border-bottom:1px solid#e5e5e5;
-	
 }
 .clTbltext {
 padding-top:1px;
@@ -182,8 +186,6 @@ color:#fff!important;
 }
 
 .Panel_BC {
- /*background-color: #E5E5E5 !important; 	*/
- 
 }
 /*css for cards*/
 .detailsCard{

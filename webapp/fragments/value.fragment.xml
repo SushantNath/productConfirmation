@@ -1,19 +1,6 @@
-<core:FragmentDefinition
-	xmlns="sap.m"
-	xmlns:core="sap.ui.core">
-	<SelectDialog
-		title="Products"
-		class="sapUiPopupWithPadding"
-		items="{/Reason}"
-		search="_handleValueHelpSearch"
-		confirm="_handleValueHelpClose"
-		cancel="_handleValueHelpClose"
-		multiSelect="true">
-		<StandardListItem
-			icon="{ProductPicUrl}"
-			iconDensityAware="false"
-			iconInset="false"
-			title="{Cause}"
-			description="{Description}" />
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<SelectDialog title="{i18>Select}" class="sapUiPopupWithPadding pageDialog" search="onReasonF4Search"
+		confirm="onReasonF4Confirm" liveChange="onReasonF4Search" items="{oReasonModel>/results}">
+		<StandardListItem title="{oReasonModel>Grund}"  info = "{oReasonModel>Grdtx}" infoState = "Success"/>
 	</SelectDialog>
 </core:FragmentDefinition>

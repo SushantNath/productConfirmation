@@ -1,5 +1,5 @@
-<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:f="sap.ui.layout.form" xmlns:wt="ZPROD_CONF1.control"
-          controllerName="ZPROD_CONF1.controller.View1" xmlns:html="http://www.w3.org/1999/xhtml" displayBlock="true" xmlns:l="sap.ui.layout">
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:f="sap.ui.layout.form" xmlns:wt="ZPROD_CONF2.control"
+          controllerName="ZPROD_CONF2.controller.View1" xmlns:html="http://www.w3.org/1999/xhtml" displayBlock="true" xmlns:l="sap.ui.layout">
 	<Shell id="shell">
 		<App id="Confirmation">
 			<pages>
@@ -18,7 +18,7 @@
 					
 						<FlexBox id="idFWork" alignItems="Center">	
 						<Label id="idLWork" width="6rem" text="{i18n>Work}" class="sapUiTinyMarginBegin ColLabel"/>
-						<Input id="idWork" width="7rem" class="ColInput" editable="false"/>
+						<Input id="idWork"  width="7rem" class="ColInput" editable="false"/>
 						</FlexBox>
 						
 						<FlexBox id="idFDesc" alignItems="Center">
@@ -107,7 +107,6 @@
 						</FlexBox>
 						
 						<FlexBox id="idFNumber" alignItems="Center">
-						<!--<Label id="idLNumber" width="10rem" text="{i18n>Number}" class="sapUiTinyMarginBegin ColLabel"/>-->
 						<Input id="idNumber" width="3rem" class="ColInput" editable="true" visible="false"/>
 						</FlexBox>
 						</HBox>
@@ -118,13 +117,13 @@
 			            <l:BlockLayoutCell class=" detailsCard sapUiResponsiveMargin" >
 						
 						<l:VerticalLayout id="containerLayout" width="100%">
-						<!--<l:HorizontalLayout>-->
+						
 		                <l:BlockLayout id="BlockLayout" background="Default" >
 			            <l:BlockLayoutRow accentCells="Accent1">
 			            <l:BlockLayoutCell
 				           id="idset"
 				        	   title="Set-up">
-						<!--<HBox class="sapUiSmallMargin">-->
+						
 						<VBox class="sapUiSmallMargin">
 							<Button id="idStart" text="{i18n>start}" width="10rem" class="ButtonColorBlack" press="fActClick"/>
 							<Button id="idpart" text="{i18n>part}" width="10rem" class="ButtonColorBlack" press="fActClick"/>
@@ -137,11 +136,11 @@
 						<l:BlockLayoutCell title="Processing" class=" detailsCard ">
 							
 						<VBox class="sapUiSmallMargin">
-							<Button id="idStartP" text="{i18n>startP}" width="12rem" class="ButtonColorBlack" press="fQuantityClick"/>
+							<Button id="idStartP" text="{i18n>startP}" width="12rem" class="ButtonColorBlack" press="fActClick"/>
 							<Button id="idpartF" text="{i18n>partfin}" width="12rem" class="ButtonColorBlack" press="fActClick"/>
 							<Button id="idinterP" text="{i18n>inter}" width="12rem" class="ButtonColorBlack" press="fActClick"/>
 							<Button id="idfinishP" text="{i18n>finfishP}" width="12rem" class="ButtonColorBlack" press="fActClick"/>
-						 
+						<!--    -->
 						</VBox>
 						</l:BlockLayoutCell>
 						
@@ -150,30 +149,22 @@
 				        	width="2"
 					        title="Quantity declaration">
 						<VBox class="sapUiSmallMargin">
-							<!--<Label id="idLDec" width="12rem" text="{i18n>Processing}" class="ColLabel"/>-->
-							<Button id="idDec" text="{i18n>Dec}" width="12rem" class="ButtonColorBlack" press="fQuantityClick"/>
-									<!--<wt:ProductRating class="sapUiSmallMarginBeginEnd" change="onRatingChange"/>-->
-									
+						<Button id="idDec" text="{i18n>Dec}" width="12rem" class="ButtonColorBlack" press="fQuantityClick"/>
 						</VBox>
 						</l:BlockLayoutCell>
 						</l:BlockLayoutRow>
 						</l:BlockLayout>
-						
-							
-						<!--</l:HorizontalLayout>-->
 						</l:VerticalLayout>
-						
 						</l:BlockLayoutCell>
 						</l:BlockLayoutRow>
 						</l:BlockLayout>
 						<ToolbarSpacer/>
-						<!--</HBox>-->
-						 </content>   
+						
+						 </content>
 						<footer><Toolbar>
 						<ToolbarSpacer/>
 						<Button id="idCancel" text="{i18n>Back}" class="ButtonColorBrown" press="fBack"/>
 						<Button id="idSave" text="{i18n>Enter}" class="ButtonColorGreen" press="fSaveResults"/>
-							<Button  text="Cross navigation" class="ButtonColorGreen" press="onCrossNav"/>
 					    </Toolbar>
 				        </footer>
 						</Page>
