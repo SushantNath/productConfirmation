@@ -1,6 +1,6 @@
 specVersion: '1.0'
 metadata:
-  name: ZPROD_CONF2
+  name: ZPROD_CONF5
 type: application
 resources:
   configuration:

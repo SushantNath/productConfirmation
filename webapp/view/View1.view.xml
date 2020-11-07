@@ -1,5 +1,5 @@
-<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:f="sap.ui.layout.form" xmlns:wt="ZPROD_CONF2.control"
-          controllerName="ZPROD_CONF2.controller.View1" xmlns:html="http://www.w3.org/1999/xhtml" displayBlock="true" xmlns:l="sap.ui.layout">
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:f="sap.ui.layout.form" xmlns:wt="ZPROD_CONF5.control"
+          controllerName="ZPROD_CONF5.controller.View1" xmlns:html="http://www.w3.org/1999/xhtml" displayBlock="true" xmlns:l="sap.ui.layout">
 	<Shell id="shell">
 		<App id="Confirmation">
 			<pages>
