@@ -1,7 +1,7 @@
 /*global QUnit*/
 
 sap.ui.define([
-	"ZRTC/ZPROD_CONF5/controller/View1.controller"
+	"ZRTC/ZPROD_CONF3/controller/View1.controller"
 ], function (Controller) {
 	"use strict";
 

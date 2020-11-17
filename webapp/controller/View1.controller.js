@@ -9,9 +9,9 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/m/MessageToast", "sap/m/Messag
 	"sap/ui/core/Fragment", "sap/m/Token", "sap/ui/core/ValueState", "sap/ui/model/FilterOperator"
 ], function (e, t, a, i, s, r, d, o, u, g, n, l, V) {
 	"use strict";
-	return e.extend("ZPROD_CONF5.controller.View1", {
+	return e.extend("ZPROD_CONF3.controller.View1", {
 		onAfterRendering: function () {
-			gmsgbundle = this.getView().getModel("i18n").getResourceBundle()
+			gmsgbundle = this.getView().getModel("i18n").getResourceBundle();
 		},
 		_data: {
 			date: new Date
@@ -24,29 +24,46 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/m/MessageToast", "sap/m/Messag
 			t.addEventDelegate({
 				onBeforeShow: function (e) {}
 			}, t);
-			var i = jQuery.sap.getModulePath("ZPROD_CONF5");
+			var i = jQuery.sap.getModulePath("ZPROD_CONF3");
 			var s = new sap.ui.model.json.JSONModel([i, "model/Data.json"].join("/"));
 			this.getView().setModel(s, "jData");
 			var r = window.location;
 			console.log(r);
 			var d = location.href;
 			var o = d.includes("&");
+			var u;
+			var g;
+			var l;
+			var n;
+			var V;
+			var b;
+			var p;
+			var e;
+			var I;
 			if (o === true) {
-				var u = d.split("&");
-				var g = u[2].split("=");
-				var n = g[1];
-				var l = u[3].split("=");
-				var V = l[1];
-				var b = this;
-				var p = {};
-				var e = sap.ui.core.UIComponent.getRouterFor(this);
-				var I = "/PO_GETSet(Aufnr='" + V + "',Vornr='" + n + "')";
+				u = d.split("&");
+				if( u[2].includes("=") )
+				{
+				g = u[2].split("=");
+				n = g[1];
+				}
+				if( u[3].includes("=") )
+				{
+				l = u[3].split("=");
+			    V = l[1];
+				}
+				
+			
+				b = this;
+			    p = {};
+			    e = sap.ui.core.UIComponent.getRouterFor(this);
+			    I = "/PO_GETSet(Aufnr='" + V + "',Vornr='" + n + "')";
 				b.oModel.read(I, {
 					success: function (t) {
 						p = t;
 						if (t.Gv_msg1 !== "") {
 							a.error(t.Gv_msg1);
-							return
+							return;
 						}
 						b.getView().byId("idOrder").setValue(V);
 						b.getView().byId("idOper").setValue(n);
@@ -61,7 +78,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/m/MessageToast", "sap/m/Messag
 						var i = t.Igmng;
 						var s = t.Gmein;
 						if (i === "") {
-							s = ""
+							s = "";
 						}
 						b.getView().byId("idQCon").setValue(s);
 						b.getView().byId("idQact").setValue(t.ZactDate);
@@ -74,10 +91,10 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/m/MessageToast", "sap/m/Messag
 						b.getView().byId("idQUnit").setValue(t.ZquanUnit);
 						var r = new sap.ui.model.json.JSONModel(p);
 						sap.ui.getCore().setModel(r, "Idetails");
-						e.navTo("RouteView1")
+						e.navTo("RouteView1");
 					},
 					error: function (e) {}
-				})
+				});
 			}
 		},
 		onReasonF4: function () {
@@ -86,7 +103,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/m/MessageToast", "sap/m/Messag
 			var e = this.getView().byId("idOrder").getValue();
 			i.show(10);
 			if (!this._ReasonDialog) {
-				this._ReasonDialog = sap.ui.xmlfragment("ZPROD_CONF5.fragments.value", this)
+				this._ReasonDialog = sap.ui.xmlfragment("ZPROD_CONF3.fragments.value", this);
 			}
 			var t = new sap.ui.model.odata.ODataModel("/sap/opu/odata/sap/ZPTMPROD_CONF_SRV");
 			t.read("/GET_REASONSet", {
@@ -97,13 +114,13 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/m/MessageToast", "sap/m/Messag
 				success: function (e, t) {
 					i.hide();
 					var a = new sap.ui.model.json.JSONModel(e.results[0].F4ReasonNav);
-					this._ReasonDialog.setModel(a, "oReasonModel")
+					this._ReasonDialog.setModel(a, "oReasonModel");
 				}.bind(this),
 				error: function (e) {
-					i.hide()
+					i.hide();
 				}.bind(this)
 			});
-			this._ReasonDialog.open()
+			this._ReasonDialog.open();
 		},
 		onReasonF4Search: function (e) {
 			
@@ -113,14 +130,14 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/m/MessageToast", "sap/m/Messag
 				.Contains, t)]);
 			var i = new sap.ui.model.Filter(a, false);
 			var s = e.getSource().getBinding("items");
-			s.filter([i])
+			s.filter([i]);
 		},
 		onReasonF4Confirm: function (e) {
 			
 		
 			var t = e.getParameter("selectedItem");
 			sap.ui.getCore().byId("idReason1").setValue(t.getTitle());
-			sap.ui.getCore().byId("idReason1").setDescription(t.getInfo())
+			sap.ui.getCore().byId("idReason1").setDescription(t.getInfo());
 		},
 		onReasonF4Change: function () {
 			
@@ -129,13 +146,13 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/m/MessageToast", "sap/m/Messag
 		
 			var e = this.getView().byId("idReason1").getValue();
 			e = e.toUpperCase();
-			sap.ui.getCore().byId("idReason1").setValue(e)
+			sap.ui.getCore().byId("idReason1").setValue(e);
 		},
 		fQuantityClick: function (e) {
 			var t = this.getView();
 			if (!this._oDialog2) {
-				this._oDialog2 = sap.ui.xmlfragment("ZPROD_CONF5.fragments.quan", this);
-				this.getView().addDependent(this._oDialog2)
+				this._oDialog2 = sap.ui.xmlfragment("ZPROD_CONF3.fragments.quan", this);
+				this.getView().addDependent(this._oDialog2);
 			}
 			var a = new d;
 			a.setData({
@@ -159,7 +176,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/m/MessageToast", "sap/m/Messag
 			var V = this.getView().byId("idNumber").getValue();
 			var b = this.getView().byId("idQCon").getValue();
 			if (b === "PC") {
-				b = "PAL"
+				b = "PAL";
 			}
 			var p = e.getSource().getText();
 			sap.ui.getCore().byId("idOrder2").setValue(iOrder);
@@ -174,28 +191,28 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/m/MessageToast", "sap/m/Messag
 			sap.ui.getCore().byId("idQUnit2").setValue(l);
 			sap.ui.getCore().byId("idType2").setValue(p);
 			sap.ui.getCore().byId("idQU2").setValue(b);
-			this._oDialog2.open()
+			this._oDialog2.open();
 		},
 		fHandleClose1: function (e) {
 			if (this._oDialog1) {
-				this._oDialog1.close()
+				this._oDialog1.close();
 			}
 		},
 		fHandleClose2: function (e) {
 			if (this._oDialog2) {
-				this._oDialog2.close()
+				this._oDialog2.close();
 			}
 		},
 		fActClick: function (e) {
 			var t = this.getView();
 			if (!this._oDialog1) {
-				this._oDialog1 = sap.ui.xmlfragment("ZPROD_CONF5.fragments.act", this);
-				this.getView().addDependent(this._oDialog1)
+				this._oDialog1 = sap.ui.xmlfragment("ZPROD_CONF3.fragments.act", this);
+				this.getView().addDependent(this._oDialog1);
 			}
 			sap.ui.getCore().byId("idReason1").setValue("");
 			sap.ui.getCore().byId("idReason1").setDescription("");
 			sap.ui.getCore().byId("idNumber1").setValue("");
-			var a = jQuery.sap.getModulePath("ZPROD_CONF5");
+			var a = jQuery.sap.getModulePath("ZPROD_CONF3");
 			var i = new sap.ui.model.json.JSONModel([a, "model/Data.json"].join("/"));
 			this.getView().setModel(i, "jData");
 			var i = new d;
@@ -219,10 +236,10 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/m/MessageToast", "sap/m/Messag
 			var p = e.getSource().getText();
 			if (p === "Start Set-up" || p === "Start Processing") {
 				sap.ui.getCore().byId("idNumber1").setVisible(false);
-				sap.ui.getCore().byId("idLNumber1").setVisible(false)
+				sap.ui.getCore().byId("idLNumber1").setVisible(false);
 			} else {
 				sap.ui.getCore().byId("idNumber1").setVisible(true);
-				sap.ui.getCore().byId("idLNumber1").setVisible(true)
+				sap.ui.getCore().byId("idLNumber1").setVisible(true);
 			}
 			sap.ui.getCore().byId("idOrder1").setValue(iOrder);
 			sap.ui.getCore().byId("idOper1").setValue(iOper);
@@ -235,7 +252,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/m/MessageToast", "sap/m/Messag
 			sap.ui.getCore().byId("idAStat1").setValue(l);
 			sap.ui.getCore().byId("idAUnit1").setValue(V);
 			sap.ui.getCore().byId("idType1").setValue(p);
-			this._oDialog1.open()
+			this._oDialog1.open();
 		},
 		fConfirm1: function (e) {
 			if (this._oDialog1) {
@@ -253,10 +270,10 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/m/MessageToast", "sap/m/Messag
 					"Interrupt Processing" || r === "End Processing") {
 					if (g === "" || g === "0") {
 						a.error("Please insert a number of operators");
-						return
+						return;
 					}
 				} else {
-					g = ""
+					g = "";
 				}
 				var V = {};
 				var b = sap.ui.core.UIComponent.getRouterFor(this);
@@ -280,7 +297,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/m/MessageToast", "sap/m/Messag
 										V = e;
 										if (e.Gv_msg1 !== "") {
 											a.error(e.Gv_msg1);
-											return
+											return;
 										}
 										t.getView().byId("idNumber").setValue(e.ANZMA);
 										t.getView().byId("idWork").setValue(e.Arbpl);
@@ -293,7 +310,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/m/MessageToast", "sap/m/Messag
 										var i = e.Igmng;
 										var s = e.Gmein;
 										if (i === "") {
-											s = ""
+											s = "";
 										}
 										t.getView().byId("idQCon").setValue(s);
 										t.getView().byId("idQact").setValue(e.ZactDate);
@@ -302,17 +319,18 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/m/MessageToast", "sap/m/Messag
 										t.getView().byId("idAUnit").setValue(e.ZactStart);
 										var r = new sap.ui.model.json.JSONModel(V);
 										sap.ui.getCore().setModel(r, "Idetails");
-										b.navTo("RouteView1")
+										b.navTo("RouteView1");
 									},
 									error: function (e) {}
-								})
+								});
 							}
-							b.navTo("RouteView1")
+							b.navTo("RouteView1");
 						}
-					})
-				})
+					});
+				});
 			}
 		},
+		
 		fConfirm2: function (e) {
 			if (this._oDialog2) {
 			
@@ -325,6 +343,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/m/MessageToast", "sap/m/Messag
 				var u = sap.ui.getCore().byId("idQuan2").getValue();
 				var g = sap.ui.getCore().byId("idQU2").getValue();
 				var n = sap.ui.getCore().byId("idNumber2").getValue();
+				
 				var l = "";
 				
 				if (n === "" || n === "0") {
@@ -345,11 +364,24 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/m/MessageToast", "sap/m/Messag
 						actions: [sap.m.MessageBox.Action.CLOSE],
 						onClose: function (r) {
 							if (e.GvFlag === "") {
-								  // Calling Post consumption App
-				var iman = sap.ui.getCore().byId("idManual2").getValue();
-				if (iman == "X")
+				// Calling Post consumption App
+				if(sap.ui.getCore().byId("idManual2").getSelected())
 				{
-			
+				sap.ushell.Container.getService("CrossApplicationNavigation").toExternal({
+				target: {
+					semanticObject: "ZpostCons_semobj",
+					action: "display"
+				},
+				params: {
+					"Warehouse": "4A10",
+					"ManufacturingOrder": i,
+					"Operation": s,
+					"Quantity": u,
+                    "Unit": g,
+					"mode": "crossNavigation"
+				}
+		    	});
+				}
 				//
 								t._oDialog2.close();
 								var d = "/PO_GETSet(Aufnr='" + i + "',Vornr='" + s + "')";
@@ -388,11 +420,9 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/m/MessageToast", "sap/m/Messag
 							}
 							b.navTo("RouteView1");
 						}
-					}
+					});
 				});
 			}
-			
-			)}
 		},
 		_onRouteFound: function (e) {},
 		fSaveResults: function () {
