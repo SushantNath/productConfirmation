@@ -4,6 +4,7 @@ var iOper;
 var vmsg;
 var order;
 var oper;
+var selectionValue;
 sap.ui.define(["sap/ui/core/mvc/Controller", "sap/m/MessageToast", "sap/m/MessageBox", "sap/ui/core/BusyIndicator",
 	"sap/ui/core/routing/History", "sap/ui/model/Filter", "sap/ui/model/json/JSONModel", "sap/ui/core/library", "sap/ui/core/Core",
 	"sap/ui/core/Fragment", "sap/m/Token", "sap/ui/core/ValueState", "sap/ui/model/FilterOperator"
@@ -96,6 +97,8 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/m/MessageToast", "sap/m/Messag
 					error: function (e) {}
 				});
 			}
+			
+			selectionValue= "auto";
 		},
 		onReasonF4: function () {
 			
@@ -203,6 +206,20 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/m/MessageToast", "sap/m/Messag
 				this._oDialog2.close();
 			}
 		},
+		//Selecttin event for automatic component consumption
+		
+		autoCompSel: function (e) {
+			
+			selectionValue="auto";
+		},
+		
+			//Selectton event for manual component consumption
+		
+		manualCompSel: function (e) {
+			
+				selectionValue="manual";
+		},
+		
 		fActClick: function (e) {
 			var t = this.getView();
 			if (!this._oDialog1) {
@@ -255,6 +272,9 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/m/MessageToast", "sap/m/Messag
 			this._oDialog1.open();
 		},
 		fConfirm1: function (e) {
+			
+		
+			
 			if (this._oDialog1) {
 				var t = this;
 				var i = sap.ui.getCore().byId("idOrder1").getValue();
@@ -332,9 +352,8 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/m/MessageToast", "sap/m/Messag
 		},
 		
 		fConfirm2: function (e) {
-			if (this._oDialog2) {
 			
-				var t = this;
+			var t = this;
 				var i = sap.ui.getCore().byId("idOrder2").getValue();
 				var s = sap.ui.getCore().byId("idOper2").getValue();
 				var r = sap.ui.getCore().byId("idType2").getValue();
@@ -343,8 +362,114 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/m/MessageToast", "sap/m/Messag
 				var u = sap.ui.getCore().byId("idQuan2").getValue();
 				var g = sap.ui.getCore().byId("idQU2").getValue();
 				var n = sap.ui.getCore().byId("idNumber2").getValue();
+				var oModel = t.getOwnerComponent().getModel();
+				var selectedArray = [];
+				var payloadObject={};
+		
+				payloadObject.Lgnum="4A10";
+				payloadObject.Huident="";
+				payloadObject.MfgOrder=i;
+				payloadObject.Quana=u;
+				payloadObject.Altme=g;
+				payloadObject.Operation=s;
+				payloadObject.Psa="";
 				
 				var l = "";
+			
+			//if selected radio button is automatic then trigger background job processing
+				if(selectionValue=== "auto"){
+				
+				console.log("Inside auto selection");
+				
+					if (n === "" || n === "0") {
+					a.error("Please insert a number of operators");
+					return;
+				}
+				selectedArray.push(payloadObject);
+				
+					var aCreateDocPayload = selectedArray;
+				oModel.setDeferredGroups(["backgroundConsumptionBatch"]);
+				oModel.setUseBatch(true);
+			
+				var that = this;
+					sap.ui.core.BusyIndicator.show();
+
+				var mParameter = {
+
+					urlParameters: null,
+					groupId: "ReversalConsumptionBatch",
+					success: function (oData, oRet) {
+
+					//	var serverMessage = oRet.headers["sap-message"];
+
+						//	console.log("Message from server", serverMessage);
+						console.log("Inside mparameter success");
+						sap.ui.core.BusyIndicator.hide();
+						
+
+					},
+					error: function (oError) {
+						console.log("Inside mparameter error");
+						sap.ui.core.BusyIndicator.hide();
+
+					}
+				};
+
+				var singleentry = {
+					groupId: "ReversalConsumptionBatch",
+					urlParameters: null,
+					success: function (oData, oRet) {
+						console.log("Inside singleentry success");
+						//The success callback function for each record
+
+					/*	var serverMessage = oRet.headers["sap-message"];
+
+						if (serverMessage === undefined) {
+							console.log("Inside if block for message toast");
+
+						} else {
+
+							console.log("Inside else block for message toast");
+
+						}
+*/
+
+	a.show("Background job posted successfully", {
+										icon: a.Icon.SUCCESS,
+										title: "Dear User",
+										actions: [sap.m.MessageBox.Action.OK]
+
+									});
+
+					
+					},
+					error: function (oError) {
+						a.show("Error in background job processing", {
+										icon: a.Icon.ERROR,
+										title: "Dear User",
+										actions: [sap.m.MessageBox.Action.OK]
+
+									});
+					}
+
+				};
+
+				for (var m = 0; m < aCreateDocPayload.length; m++) {
+				
+					singleentry.properties = aCreateDocPayload[m];
+					singleentry.changeSetId = "changeset " + m;
+					oModel.createEntry("/PO_POSTSet", singleentry);
+
+				}
+				oModel.submitChanges(mParameter);
+
+			} 
+				//if selected radio button is manual then trigger manual consumption
+			else{
+			
+			if (this._oDialog2) {
+			
+				
 				
 				if (n === "" || n === "0") {
 					a.error("Please insert a number of operators");
@@ -422,6 +547,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/m/MessageToast", "sap/m/Messag
 						}
 					});
 				});
+			}
 			}
 		},
 		_onRouteFound: function (e) {},

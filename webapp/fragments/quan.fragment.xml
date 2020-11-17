@@ -105,8 +105,8 @@
 						<HBox>
 						<FlexBox id="idFAuto2" alignItems="Center">
 						<RadioButtonGroup id="rbg2" columns="2" selectedIndex="2" class="sapUiMediumMarginBottom">
-		             	<RadioButton id="idAuto2" text="{i18n>Auto}" selected="true"/>
-			            <RadioButton id="idManual2" text="{i18n>Manual}" />
+		             	<RadioButton id="idAuto2" text="{i18n>Auto}" selected="true" select="autoCompSel" />
+			            <RadioButton id="idManual2" text="{i18n>Manual}"  select="manualCompSel" />
 		                </RadioButtonGroup>
 			            </FlexBox>
 						</HBox>
