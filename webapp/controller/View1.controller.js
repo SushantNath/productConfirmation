@@ -5,6 +5,7 @@ var vmsg;
 var order;
 var oper;
 var selectionValue;
+var messageArray = [];
 sap.ui.define(["sap/ui/core/mvc/Controller", "sap/m/MessageToast", "sap/m/MessageBox", "sap/ui/core/BusyIndicator",
 	"sap/ui/core/routing/History", "sap/ui/model/Filter", "sap/ui/model/json/JSONModel", "sap/ui/core/library", "sap/ui/core/Core",
 	"sap/ui/core/Fragment", "sap/m/Token", "sap/ui/core/ValueState", "sap/ui/model/FilterOperator"
@@ -352,7 +353,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/m/MessageToast", "sap/m/Messag
 		},
 		
 		fConfirm2: function (e) {
-			
+			messageArray = [];
 			var t = this;
 				var i = sap.ui.getCore().byId("idOrder2").getValue();
 				var s = sap.ui.getCore().byId("idOper2").getValue();
@@ -422,17 +423,17 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/m/MessageToast", "sap/m/Messag
 						console.log("Inside singleentry success");
 						//The success callback function for each record
 
-					/*	var serverMessage = oRet.headers["sap-message"];
+						var serverMessage = oRet.headers["sap-message"];
 
 						if (serverMessage === undefined) {
 							console.log("Inside if block for message toast");
 
 						} else {
-
-							console.log("Inside else block for message toast");
-
+                        messageArray.push(JSON.parse(serverMessage).details);
+							t.sapMessageDisplay();
+                 // return;
 						}
-*/
+
 
 	a.show("Background job posted successfully", {
 										icon: a.Icon.SUCCESS,
@@ -550,6 +551,43 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/m/MessageToast", "sap/m/Messag
 			}
 			}
 		},
+		// code for sap-message display
+		
+		sapMessageDisplay:function (e) {
+				sap.ui.core.BusyIndicator.show();
+				var messageArray2 = [];
+			for (var m = 0; m < messageArray[0].length; m++) {
+
+				messageArray2.push(messageArray[0][m]);
+
+			}
+			
+				var messageModel = new sap.ui.model.json.JSONModel();
+			this.getView().setModel(messageModel, "messageModel");
+			this.getView().getModel("messageModel").setProperty("/messageSet", messageArray2);
+			sap.ui.core.BusyIndicator.hide();
+			
+			
+				if (!this._oDialog) {
+				//	this._oDialog = sap.ui.xmlfragment("com.bp.lubescustfinancial.fragments.OrderChangeHx", this);
+				this._oDialog = sap.ui.xmlfragment("ZPROD_CONF3.fragments.serverMessage", this);
+			}
+
+			this.getView().addDependent(this._oDialog);
+			this._oDialog.open();
+			
+			console.log("Inside sap message display");
+		},
+		
+		//Close sap-message dialog
+			handleClose: function (oEvent) {
+			/* This function closes the dialog box */
+			if (this._oDialog) {
+
+				this._oDialog.close();
+			}
+		},
+		
 		_onRouteFound: function (e) {},
 		fSaveResults: function () {
 			var e = this;
