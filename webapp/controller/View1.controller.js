@@ -436,7 +436,7 @@ sap.ui.define(["sap/ui/core/mvc/Controller", "sap/m/MessageToast", "sap/m/Messag
 										if (serverMessage === undefined) {
 											console.log("Inside if block for message toast");
 											sap.ui.core.BusyIndicator.hide();
-											a.show("Background job posted successfully", {
+											a.show("Consumption posted successfully", {
 												icon: a.Icon.SUCCESS,
 												title: "Dear User",
 												actions: [sap.m.MessageBox.Action.CLOSE],
